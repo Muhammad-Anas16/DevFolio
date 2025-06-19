@@ -13,6 +13,9 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import WbSunnyIcon from "@mui/icons-material/WbSunny"; // Sun icon
+import DarkModeIcon from '@mui/icons-material/DarkMode'; // Moon Icon
+import { useDispatch, useSelector } from "react-redux";
+import { setTheme } from "../Redux/theme/themeSlice";
 
 const pages = [
   "Home",
@@ -23,6 +26,13 @@ const pages = [
 ];
 
 function Navbar() {
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.theme.mode);
+
+  const toggleTheme = () => {
+    dispatch(setTheme(mode === "light" ? "dark" : "light"));
+  };
+
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {
@@ -133,6 +143,7 @@ function Navbar() {
           {/* Theme Toggle Circle Icon */}
           <Tooltip title="Toggle theme">
             <IconButton
+              onClick={toggleTheme}
               sx={{
                 ml: 2,
                 backgroundColor: "#9BE8FF",
@@ -141,7 +152,11 @@ function Navbar() {
                 },
               }}
             >
-              <WbSunnyIcon sx={{ color: "#FFED8A" }} />
+              {mode === "light" ? (
+                <WbSunnyIcon sx={{ color: "#FFED8A" }} />
+              ) : (
+                <DarkModeIcon sx={{ color: "#ffffff" }} />
+              )}
             </IconButton>
           </Tooltip>
         </Toolbar>

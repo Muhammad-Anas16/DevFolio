@@ -7,7 +7,14 @@ import {
   Grid,
   IconButton,
 } from "@mui/material";
-import { GitHub, LinkedIn, Instagram, Google } from "@mui/icons-material";
+import {
+  GitHub,
+  LinkedIn,
+  WhatsApp,
+  Email,
+  Facebook,
+  Instagram,
+} from "@mui/icons-material";
 import IntroImage from "../Images/boy.png";
 
 const Intro = () => {
@@ -19,6 +26,8 @@ const Intro = () => {
         bgcolor: "white",
         display: "flex",
         alignItems: "center",
+        bgcolor: "background.default",
+        color: "text.primary",
       }}
     >
       <Grid container spacing={4} alignItems="center" justifyContent="center">
@@ -56,18 +65,96 @@ const Intro = () => {
           </Typography>
 
           {/* Social Icons */}
+
           <Stack direction="row" flexWrap="wrap" spacing={2} mt={3}>
-            <IconButton color="inherit">
+            <IconButton
+              href="https://github.com/muhammad-anas16"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#171515", // GitHub
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                },
+              }}
+            >
               <GitHub />
             </IconButton>
-            <IconButton color="inherit">
+
+            <IconButton
+              href="https://www.linkedin.com/in/muhammad-anas-b5368b32a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#0A66C2", // LinkedIn
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                },
+              }}
+            >
               <LinkedIn />
             </IconButton>
-            <IconButton color="inherit">
-              <Google />
+
+            <IconButton
+              href="https://www.facebook.com/Muhammad.Anas.Dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#1877F2", // Facebook blue
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                },
+              }}
+            >
+              <Facebook />
             </IconButton>
-            <IconButton color="inherit">
+
+            <IconButton
+              href="https://www.instagram.com/muhammad.anas.dev/?igsh=MTBkanNza2IwczFkZA%3D%3D#"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#E1306C", // Instagram
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                },
+              }}
+            >
               <Instagram />
+            </IconButton>
+
+            <IconButton
+              href="mailto:muhammad-anas16@outlook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#EA4335", // Email/Gmail red
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                },
+              }}
+            >
+              <Email />
+            </IconButton>
+
+            <IconButton
+              href="https://wa.me/923182834203"
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#25D366", // WhatsApp green
+                transition: "transform 0.3s ease",
+                "&:hover": {
+                  transform: "scale(1.2)",
+                },
+              }}
+            >
+              <WhatsApp />
             </IconButton>
           </Stack>
 

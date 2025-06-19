@@ -61,9 +61,15 @@ const Skills = () => {
   ];
 
   return (
-    <Box sx={{ py: 6, background: "#fff" }}>
+    <Box sx={{ py: 6, bgcolor: "background.default", color: "text.primary" }}>
       <Container maxWidth="lg">
-        <Typography color="#FF0055" variant="h4" align="center" fontWeight="bold" gutterBottom>
+        <Typography
+          color="#FF0055"
+          variant="h4"
+          align="center"
+          fontWeight="bold"
+          gutterBottom
+        >
           Here's what I do
         </Typography>
 
@@ -96,7 +102,8 @@ const Skills = () => {
             >
               {SkillIcons.map((icon, i) => {
                 return (
-                  <Box key={i}
+                  <Box
+                    key={i}
                     component="img"
                     src={icon?.img}
                     alt={icon?.title}

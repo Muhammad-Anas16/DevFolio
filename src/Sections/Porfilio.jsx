@@ -3,7 +3,7 @@ import projectImage from "../Images/project.png";
 
 const Project = () => {
   return (
-    <Box sx={{ py: 6, background: "#fff" }}>
+    <Box sx={{ py: 6, bgcolor: "background.default", color: "text.primary" }}>
       <Container maxWidth="lg">
         <Typography
           variant="h4"
@@ -14,7 +14,7 @@ const Project = () => {
         >
           Projects
         </Typography>
-        <Box sx={{ py: 6, backgroundColor: "#fff" }}>
+        <Box sx={{ py: 6, bgcolor: 'background.default', color: 'text.primary' }}>
           <Container>
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>

@@ -5,10 +5,10 @@ const Footer = () => {
   return (
     <Box
       sx={{
-        // backgroundColor: "#111",
-        // color: "#fff",
         py: 3,
         textAlign: "center",
+        bgcolor: "background.default",
+        color: "text.primary",
       }}
     >
       <Typography variant="body1">

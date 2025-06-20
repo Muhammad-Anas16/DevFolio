@@ -16,7 +16,6 @@ import {
   Facebook,
   Instagram,
 } from "@mui/icons-material";
-import projectImage from "../Images/project.png";
 
 const Contact = () => {
   return (
@@ -164,6 +163,9 @@ const Contact = () => {
                 {/* Button */}
                 <Button
                   variant="contained"
+                  href="/Resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
                     mt: 4,
                     bgcolor: "#ff0055",

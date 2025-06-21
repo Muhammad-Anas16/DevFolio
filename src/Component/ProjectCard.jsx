@@ -9,148 +9,157 @@ const cards = [
   {
     id: 1,
     title: "Proper React Web",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/640px-PNG_transparency_demonstration_1.png",
+    description:
+      "A professional React website with responsive design and routing.",
     github: "https://github.com/Muhammad-Anas16/React-Proper-Web",
     live: "https://react-proper-web.netlify.app/",
+    tech: ["HTML", "CSS", "JavaScript", "React"],
   },
   {
     id: 2,
     title: "Animals App",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/640px-PNG_transparency_demonstration_1.png",
+    description: "An app that showcases different animal species using an API.",
     github: "https://github.com/yourusername/animals-app",
     live: "https://animals-app-live.com",
+    tech: ["HTML", "CSS", "React"],
   },
   {
     id: 3,
     title: "Humans App",
-    image:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/640px-PNG_transparency_demonstration_1.png",
+    description: "Displays human biology-related content fetched from backend.",
     github: "https://github.com/yourusername/humans-app",
     live: "https://humans-app-live.com",
+    tech: ["NodeJS", "Express", "MongoDB"],
   },
 ];
 
-function ProjectCardSection() {
-  const [selectedCard, setSelectedCard] = React.useState(0);
+const techIcons = {
+  HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
+  CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
+  JavaScript:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+  React:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+  NodeJS:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+  Express:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+  MongoDB:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+};
 
+function ProjectCardSection() {
   return (
     <Box
       sx={{
         display: "grid",
         gridTemplateColumns: {
-          xs: "1fr", // Stack on small screens
-          sm: "1fr 1fr", // Two columns on small/medium
-          md: "1fr 1fr 1fr", // Three columns on medium and up
+          xs: "1fr",
+          sm: "1fr 1fr",
+          md: "1fr 1fr 1fr",
         },
         gap: 2,
         width: "100%",
         maxWidth: 1200,
-        mx: "auto", // Center the whole grid horizontally
+        mx: "auto",
         px: 2,
         pt: 10,
       }}
     >
       {cards.map((card, index) => (
-        // <Card key={index} sx={{ height: "100%" }}>
         <Card
           key={index}
-          sx={{ position: "relative", height: 250, borderRadius: "10px" }}
+          sx={{
+            height: "100%",
+            borderRadius: "10px",
+            p: 3,
+            backgroundColor: "#f9f9f9",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "space-between",
+          }}
         >
-          {/* Project Image */}
-          <Box
-            component="img"
-            src={card.image}
-            alt={card.title}
-            sx={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-            }}
-          />
-
-          {/* Hover Content */}
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              width: "100%",
-              height: "100%",
-              backgroundColor: "rgba(0, 0, 0, 0.6)",
-              color: "white",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
-              opacity: 0,
-              transition: "opacity 0.3s ease",
-              "&:hover": {
-                opacity: 1,
-              },
-            }}
-          >
-            <Typography variant="h6" sx={{ mb: 2 }}>
+          <Box>
+            <Typography variant="h6" sx={{ mb: 1 }}>
               {card.title}
             </Typography>
+            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+              {card.description}
+            </Typography>
 
-            <Box sx={{ display: "flex", gap: 3 }}>
-              {/* GitHub Icon with color, label, and shadow on hover */}
-              <Box
-                component="a"
-                href={card.github}
-                target="_blank"
-                sx={{
-                  color: "#181717",
-                  textAlign: "center",
-                  textDecoration: "none",
-                  "&:hover .label": { opacity: 1 },
-                  "&:hover svg": {
-                    filter: "drop-shadow(0 0 6px white)",
-                  },
-                }}
-              >
-                <GitHubIcon sx={{ fontSize: 30 }} />
-                <Typography
-                  className="label"
+            <Box sx={{ display: "flex", gap: 2, flexWrap: "wrap" }}>
+              {card.tech.map((tech, i) => (
+                <Box
+                  key={i}
                   sx={{
-                    fontSize: 12,
-                    opacity: 0,
-                    transition: "opacity 0.3s",
-                    color: "#ffffff",
+                    position: "relative",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    cursor: "pointer",
+                    "&:hover .tech-label": {
+                      opacity: 1,
+                      transform: "translateY(0px)",
+                    },
                   }}
                 >
-                  GitHub
-                </Typography>
-              </Box>
-              <Box
-                component="a"
-                href={card.live}
-                target="_blank"
-                sx={{
-                  color: "#4285F4",
-                  textAlign: "center",
-                  textDecoration: "none",
-                  "&:hover .label": { opacity: 1 },
-                  "&:hover svg": {
-                    filter: "drop-shadow(0 0 6px white)",
-                  },
-                }}
-              >
-                <LanguageIcon sx={{ fontSize: 30 }} />
-                <Typography
-                  className="label"
-                  sx={{
-                    fontSize: 12,
-                    opacity: 0,
-                    transition: "opacity 0.3s",
-                    color: "#ffffff",
-                  }}
-                >
-                  Live
-                </Typography>
-              </Box>
+                  <Box
+                    component="img"
+                    src={techIcons[tech]}
+                    alt={tech}
+                    sx={{ width: 30, height: 30 }}
+                  />
+                  <Typography
+                    className="tech-label"
+                    sx={{
+                      position: "absolute",
+                      top: "100%",
+                      fontSize: 10,
+                      opacity: 0,
+                      mt: 0.5,
+                      color: "#555",
+                      transition: "all 0.2s ease",
+                      transform: "translateY(5px)",
+                      whiteSpace: "nowrap",
+                    }}
+                  >
+                    {tech}
+                  </Typography>
+                </Box>
+              ))}
+            </Box>
+          </Box>
+
+          <Box sx={{ display: "flex", gap: 3, mt: 3 }}>
+            <Box
+              component="a"
+              href={card.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#181717",
+                textDecoration: "none",
+                "&:hover svg": {
+                  filter: "drop-shadow(0 0 6px gray)",
+                },
+              }}
+            >
+              <GitHubIcon sx={{ fontSize: 30 }} />
+            </Box>
+            <Box
+              component="a"
+              href={card.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: "#4285F4",
+                textDecoration: "none",
+                "&:hover svg": {
+                  filter: "drop-shadow(0 0 6px gray)",
+                },
+              }}
+            >
+              <LanguageIcon sx={{ fontSize: 30 }} />
             </Box>
           </Box>
         </Card>

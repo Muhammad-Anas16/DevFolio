@@ -17,6 +17,8 @@ import {
   Instagram,
 } from "@mui/icons-material";
 
+import My_Image from "../Images/pic.png";
+
 const Contact = () => {
   return (
     <Box sx={{ py: 6, bgcolor: "background.default", color: "text.primary" }}>
@@ -37,8 +39,8 @@ const Contact = () => {
             <Grid container spacing={4} alignItems="center">
               <Grid item xs={12} md={6}>
                 <Avatar
-                  alt="Projects"
-                  src="https://static.vecteezy.com/system/resources/thumbnails/053/760/383/small/blue-3d-person-icon-isolated-on-transparent-background-png.png"
+                  alt="My Image"
+                  src={My_Image}
                   sx={{
                     width: 300, // You can adjust this
                     height: 300,

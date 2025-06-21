@@ -1,4 +1,4 @@
-import React from "react";
+import { useState } from "react";
 import {
   AppBar,
   Box,
@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import WbSunnyIcon from "@mui/icons-material/WbSunny"; // Sun icon
-import DarkModeIcon from '@mui/icons-material/DarkMode'; // Moon Icon
+import DarkModeIcon from "@mui/icons-material/DarkMode"; // Moon Icon
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../Redux/theme/themeSlice";
 
@@ -25,7 +25,7 @@ const pages = [
   "Contact Me",
 ];
 
-function Navbar() {
+function Navbar({ setScroll }) {
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.theme.mode);
 
@@ -33,7 +33,7 @@ function Navbar() {
     dispatch(setTheme(mode === "light" ? "dark" : "light"));
   };
 
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -43,11 +43,15 @@ function Navbar() {
     setAnchorElNav(null);
   };
 
+  const HandleNavClick = (page) => {
+    setScroll(page);
+    handleCloseNavMenu();
+  };
+
   return (
     <AppBar position="static" color="default" elevation={0}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          {/* Logo */}
           <Typography
             variant="h6"
             noWrap
@@ -65,7 +69,6 @@ function Navbar() {
             M.Anas()
           </Typography>
 
-          {/* Mobile Menu Icon */}
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -101,7 +104,6 @@ function Navbar() {
             </Menu>
           </Box>
 
-          {/* Mobile Logo */}
           <Typography
             variant="h6"
             noWrap
@@ -119,20 +121,24 @@ function Navbar() {
             M.Anas()
           </Typography>
 
-          {/* Desktop Nav Links */}
           <Box
             sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, gap: 3 }}
           >
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => HandleNavClick(page)}
                 sx={{
                   my: 2,
                   color: "inherit",
                   display: "block",
                   textTransform: "none",
-                  fontWeight: page === "Contact and Resume" ? "bold" : "normal",
+                  fontWeight: "bold",
+                  transition: "color 0.3s ease",
+                  "&:hover": {
+                    background: "#FF0055",
+                    color: "white",
+                  },
                 }}
               >
                 {page}
@@ -140,7 +146,6 @@ function Navbar() {
             ))}
           </Box>
 
-          {/* Theme Toggle Circle Icon */}
           <Tooltip title="Toggle theme">
             <IconButton
               onClick={toggleTheme}

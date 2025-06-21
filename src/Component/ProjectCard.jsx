@@ -8,11 +8,11 @@ import LanguageIcon from "@mui/icons-material/Language";
 const cards = [
   {
     id: 1,
-    title: "Plants App",
+    title: "Proper React Web",
     image:
       "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/PNG_transparency_demonstration_1.png/640px-PNG_transparency_demonstration_1.png",
-    github: "https://github.com/yourusername/plants-app",
-    live: "https://plants-app-live.com",
+    github: "https://github.com/Muhammad-Anas16/React-Proper-Web",
+    live: "https://react-proper-web.netlify.app/",
   },
   {
     id: 2,

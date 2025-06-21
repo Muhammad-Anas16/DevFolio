@@ -17,7 +17,14 @@ import {
 } from "@mui/icons-material";
 import IntroImage from "../Images/boy.png";
 
-const Intro = () => {
+const Intro = ({setScroll}) => {
+
+  const HandleContactMe = () => {
+    if(setScroll){
+      setScroll("Contact Me")
+    }
+  }
+
   return (
     <Box
       sx={{
@@ -161,6 +168,8 @@ const Intro = () => {
           {/* Button */}
           <Button
             variant="contained"
+            // onClick={() => HandleContactMe}
+            onClick={HandleContactMe}
             sx={{
               mt: 4,
               bgcolor: "#ff0055",

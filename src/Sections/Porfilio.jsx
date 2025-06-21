@@ -1,5 +1,6 @@
-import { Box, Grid, Typography, Container } from "@mui/material";
+import { Box, Grid, Typography, Container, Button } from "@mui/material";
 import projectImage from "../Images/project.png";
+import ProjectCardSection from "../Component/ProjectCard";
 
 const Project = () => {
   return (
@@ -14,9 +15,16 @@ const Project = () => {
         >
           Projects
         </Typography>
-        <Box sx={{ py: 6, bgcolor: 'background.default', color: 'text.primary' }}>
+        <Box
+          sx={{ py: 6, bgcolor: "background.default", color: "text.primary" }}
+        >
           <Container>
-            <Grid container spacing={4} alignItems="center">
+            <Grid
+              container
+              spacing={4}
+              alignItems="center"
+              direction={{ xs: "column-reverse", md: "row" }}
+            >
               <Grid item xs={12} md={6}>
                 <Box sx={{ px: { xs: 2, md: 4 } }}>
                   <Typography variant="h6">
@@ -42,7 +50,21 @@ const Project = () => {
               </Grid>
             </Grid>
           </Container>
+          <ProjectCardSection />
         </Box>
+        <Button href="https://github.com/Muhammad-Anas16?tab=repositories"
+          sx={{
+            background: "#FF0055",
+            color: "#fff",
+            fontWeight: "bold",
+            fontSize: "0.75rem", 
+            textTransform: "none",
+            px: 2,
+            py: 1,
+          }}
+        >
+          More Projects (Github)
+        </Button>
       </Container>
     </Box>
   );

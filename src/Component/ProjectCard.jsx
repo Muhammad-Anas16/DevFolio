@@ -4,12 +4,14 @@ import Card from "@mui/material/Card";
 import Typography from "@mui/material/Typography";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import LanguageIcon from "@mui/icons-material/Language";
+import { useSelector } from "react-redux";
 
 const cards = [
   {
     id: 1,
     title: "Proper React Web",
-    description: "",
+    description:
+      "fully functional e-commerce web using React. Including Hooks, React Router, Redux Toolkit, TanStack Query, and React Hook Form. Pagination, and Firebase for backend. Currently under active development",
     github: "https://github.com/Muhammad-Anas16/React-Proper-Web",
     live: "https://react-proper-web.netlify.app/",
     tech: ["HTML", "CSS", "JavaScript", "React", "Firebase"],
@@ -17,32 +19,36 @@ const cards = [
   {
     id: 2,
     title: "Dev Folio",
-    description: "",
+    description:
+      "my own portfolio using HTML, CSS, JavaScript, and React to showcase my projects, skills, and a bit about me. It’s clean, responsive, and easily reflect both my coding skills and personal style",
     github: "https://github.com/Muhammad-Anas16/DevFolio",
     live: "https://deveveloper-folio.netlify.app/",
-    tech: ["HTML", "CSS", "React"],
+    tech: ["HTML", "CSS", "JavaScript", "React"],
   },
   {
     id: 3,
-    title: "express-MongoDB",
-    description: "",
+    title: "Express, MongoDB server",
+    description:
+      "Working on a backend project with Node.js, Express, and MongoDB. Still in progress, but I’m building out APIs, messing with databases, and figuring out how everything works behind the scenes",
     github: "https://github.com/Muhammad-Anas16/express-MongoDB",
     live: "https://humans-app-live.com",
     tech: ["NodeJS", "Express", "MongoDB"],
   },
-    {
+  {
     id: 4,
-    title: "Digital-Clock",
-    description: "",
+    title: "Digital Clock",
+    description:
+      "a simple digital clock with HTML, CSS, and JavaScript. Just a fun little project to play around with time and the DOM",
     github: "https://github.com/Muhammad-Anas16/The-Digital-Clock",
     live: "https://watch-and-check-time.netlify.app/",
     tech: ["HTML", "CSS", "JavaScript"],
   },
 
-      {
+  {
     id: 5,
     title: "Forn-Local-Storage",
-    description: "",
+    description:
+      "a basic form using HTML, CSS, and JavaScript that saves data, even after refreshing the page, just to learn how browser storage works",
     github: "https://github.com/Muhammad-Anas16/forn-Local-Storage",
     live: "https://form-validation-local-storage.netlify.app/",
     tech: ["HTML", "CSS", "JavaScript"],
@@ -67,6 +73,8 @@ const techIcons = {
 };
 
 function ProjectCardSection() {
+  const theme = useSelector((state) => state.theme.mode);
+
   return (
     <Box
       sx={{
@@ -91,17 +99,27 @@ function ProjectCardSection() {
             height: "100%",
             borderRadius: "10px",
             p: 3,
-            backgroundColor: "#f9f9f9",
+            backgroundColor: theme === "dark" ? "#1e1e1e" : "#f9f9f9",
+            color: theme === "dark" ? "#f1f1f1" : "inherit",
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
+            boxShadow:
+              theme === "dark"
+                ? "0 0 10px rgba(255,255,255,0.05)"
+                : "0 0 10px rgba(0,0,0,0.05)",
           }}
         >
           <Box>
             <Typography variant="h6" sx={{ mb: 1 }}>
               {card.title}
             </Typography>
-            <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+
+            <Typography
+              variant="body2"
+              color={theme === "dark" ? "#ccc" : "text.secondary"}
+              sx={{ mb: 2, textTransform: "capitalize" }}
+            >
               {card.description}
             </Typography>
 
@@ -135,7 +153,7 @@ function ProjectCardSection() {
                       fontSize: 10,
                       opacity: 0,
                       mt: 0.5,
-                      color: "#555",
+                      color: theme === "dark" ? "#aaa" : "#555",
                       transition: "all 0.2s ease",
                       transform: "translateY(5px)",
                       whiteSpace: "nowrap",
@@ -155,7 +173,7 @@ function ProjectCardSection() {
               target="_blank"
               rel="noopener noreferrer"
               sx={{
-                color: "#181717",
+                color: theme === "dark" ? "#ccc" : "#181717",
                 textDecoration: "none",
                 "&:hover svg": {
                   filter: "drop-shadow(0 0 6px gray)",

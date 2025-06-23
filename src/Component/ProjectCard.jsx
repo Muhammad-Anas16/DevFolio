@@ -12,7 +12,7 @@ const cards = [
     description: "",
     github: "https://github.com/Muhammad-Anas16/React-Proper-Web",
     live: "https://react-proper-web.netlify.app/",
-    tech: ["HTML", "CSS", "JavaScript", "React"],
+    tech: ["HTML", "CSS", "JavaScript", "React", "Firebase"],
   },
   {
     id: 2,
@@ -30,6 +30,23 @@ const cards = [
     live: "https://humans-app-live.com",
     tech: ["NodeJS", "Express", "MongoDB"],
   },
+    {
+    id: 4,
+    title: "Digital-Clock",
+    description: "",
+    github: "https://github.com/Muhammad-Anas16/The-Digital-Clock",
+    live: "https://watch-and-check-time.netlify.app/",
+    tech: ["HTML", "CSS", "JavaScript"],
+  },
+
+      {
+    id: 5,
+    title: "Forn-Local-Storage",
+    description: "",
+    github: "https://github.com/Muhammad-Anas16/forn-Local-Storage",
+    live: "https://form-validation-local-storage.netlify.app/",
+    tech: ["HTML", "CSS", "JavaScript"],
+  },
 ];
 
 const techIcons = {
@@ -45,6 +62,8 @@ const techIcons = {
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
   MongoDB:
     "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+  Firebase:
+    "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
 };
 
 function ProjectCardSection() {

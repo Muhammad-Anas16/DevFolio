@@ -11,7 +11,7 @@ const cards = [
     id: 1,
     title: "Proper React Web",
     description:
-      "fully functional e-commerce web using React. Including Hooks, React Router, Redux Toolkit, TanStack Query, and React Hook Form. Pagination, and Firebase for backend. Currently under active development",
+      "fully functional e-commerce web using React. Including Hooks, React Router, Redux Toolkit, TanStack Query, and React Hook Form. Pagination, and Firebase for backend.( Currently I'm Still working on it )",
     github: "https://github.com/Muhammad-Anas16/React-Proper-Web",
     live: "https://react-proper-web.netlify.app/",
     tech: ["HTML", "CSS", "JavaScript", "React", "Firebase"],
@@ -30,7 +30,7 @@ const cards = [
     title: "Express, MongoDB server",
     description:
       "Working on a backend project with Node.js, Express, and MongoDB. Still in progress, but I’m building out APIs, messing with databases, and figuring out how everything works behind the scenes",
-    github: "https://github.com/Muhammad-Anas16/express-MongoDB",
+    github: "https://github.com/Muhammad-Anas16/Express---Mongo-DB-Server",
     live: "https://humans-app-live.com",
     tech: ["NodeJS", "Express", "MongoDB"],
   },

@@ -30,8 +30,8 @@ const cards = [
     title: "Express, MongoDB server",
     description:
       "Working on a backend project with Node.js, Express, and MongoDB. Still in progress, but I’m building out APIs, messing with databases, and figuring out how everything works behind the scenes",
-    github: "https://github.com/Muhammad-Anas16/Express---Mongo-DB-Server",
-    live: "https://humans-app-live.com",
+    github: "https://github.com/Muhammad-Anas16/MongoDB",
+    live: "#",
     tech: ["NodeJS", "Express", "MongoDB"],
   },
   {

@@ -49,7 +49,18 @@ function Navbar({ setScroll }) {
   };
 
   return (
-    <AppBar position="static" color="default" elevation={0}>
+    // <AppBar position="static" color="default" elevation={0}>
+    <AppBar
+      position="sticky"
+      elevation={0}
+      sx={{
+        top: 0,
+        zIndex: 1100,
+        backgroundColor: "rgba(0, 0, 0, 0.4)", // semi-transparent black
+        backdropFilter: "blur(10px)", // blur effect behind navbar
+        WebkitBackdropFilter: "blur(10px)", // Safari support
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

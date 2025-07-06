@@ -52,19 +52,22 @@ const Project = () => {
           </Container>
           <ProjectCardSection />
         </Box>
-        <Button href="https://github.com/Muhammad-Anas16?tab=repositories"
-          sx={{
-            background: "#FF0055",
-            color: "#fff",
-            fontWeight: "bold",
-            fontSize: "0.75rem", 
-            textTransform: "none",
-            px: 2,
-            py: 1,
-          }}
-        >
-          More Projects (Github)
-        </Button>
+        <Box sx={{ display: "flex", justifyContent: "center" }}>
+          <Button
+            href="https://github.com/Muhammad-Anas16?tab=repositories"
+            sx={{
+              background: "#FF0055",
+              color: "#fff",
+              fontWeight: "bold",
+              fontSize: "0.75rem",
+              textTransform: "none",
+              px: 2,
+              py: 1,
+            }}
+          >
+            More Projects (Github)
+          </Button>
+        </Box>
       </Container>
     </Box>
   );

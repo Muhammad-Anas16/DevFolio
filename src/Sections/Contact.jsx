@@ -18,11 +18,21 @@ import {
 } from "@mui/icons-material";
 
 import My_Image from "../Images/pic.png";
+import { useSelector } from "react-redux";
 
 const Contact = () => {
+  const mode = useSelector((state) => state.theme.mode);
+
   return (
-    <Box sx={{ py: 6, bgcolor: "background.default", color: "text.primary" }}>
-      <Container maxWidth="lg">
+    <Box
+      sx={{
+        px: { xs: 2, sm: 4, md: 7, lg: 10 },
+        py: { xs: 6, md: 10 },
+        bgcolor: "background.default",
+        color: "text.primary",
+      }}
+    >
+      <Container>
         <Typography
           variant="h4"
           textAlign="center"
@@ -35,8 +45,13 @@ const Contact = () => {
         <Box
           sx={{ py: 6, bgcolor: "background.default", color: "text.primary" }}
         >
-          <Container>
-            <Grid container spacing={4} alignItems="center">
+          <Container maxWidth="lg">
+            <Grid
+              container
+              spacing={4}
+              alignItems="center"
+              justifyContent="center"
+            >
               <Grid item xs={12} md={6}>
                 <Avatar
                   alt="My Image"
@@ -49,13 +64,7 @@ const Contact = () => {
                 />
               </Grid>
 
-              <Grid
-                item
-                xs={12}
-                md={6}
-                alignItems="center"
-                justifyContent="center"
-              >
+              <Grid item xs={12} md={6}>
                 <Typography
                   variant="caption"
                   gutterBottom
@@ -70,13 +79,23 @@ const Contact = () => {
                 </Typography>
 
                 {/* Social Icons */}
-                <Stack direction="row" flexWrap="wrap" spacing={2} mt={3}>
+                <Stack
+                  direction="row"
+                  flexWrap="wrap"
+                  spacing={2}
+                  mt={3}
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   <IconButton
                     href="https://github.com/muhammad-anas16"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      color: "#171515", // GitHub
+                      color: mode === "dark" ? "#ffffff" : "#171515",
                       transition: "transform 0.3s ease",
                       "&:hover": {
                         transform: "scale(1.2)",
@@ -162,21 +181,22 @@ const Contact = () => {
                   </IconButton>
                 </Stack>
 
-                {/* Button */}
-                <Button
-                  variant="contained"
-                  href="/Resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  sx={{
-                    mt: 4,
-                    bgcolor: "#ff0055",
-                    fontWeight: "bold",
-                    "&:hover": { bgcolor: "#e6004c" },
-                  }}
-                >
-                  See My Resume
-                </Button>
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    variant="contained"
+                    href="/Resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    sx={{
+                      mt: 4,
+                      bgcolor: "#ff0055",
+                      fontWeight: "bold",
+                      "&:hover": { bgcolor: "#e6004c" },
+                    }}
+                  >
+                    See My Resume
+                  </Button>
+                </Box>
               </Grid>
             </Grid>
           </Container>

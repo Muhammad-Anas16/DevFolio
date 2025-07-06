@@ -11,7 +11,6 @@ import { useSelector } from "react-redux";
 
 function App() {
   const mode = useSelector((state) => state.theme.mode);
-
   const [scroll, setScroll] = useState(null);
 
   const Theme = createTheme({
@@ -29,31 +28,45 @@ function App() {
 
   return (
     <ThemeProvider theme={Theme}>
-      <CssBaseline>
+      <CssBaseline />
+      {/* 🧱 Main Content */}
+      <Box
+        sx={{
+          height: "100vh",
+          width: "100vw",
+          overflowY: "auto",
+          overflowX: "hidden",
+          scrollBehavior: "smooth",
+          color: "text.primary",
+          scrollbarWidth: "none",
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+        }}
+      >
+        <Navbar setScroll={setScroll} />
+
         <Box
-          sx={{
-            overflowX: "hidden",
-            textAlign: "center",
-            bgcolor: "black",
-            color: "text.primary",
-          }}
+          id="Home"
+          sx={{ width: "100vw", height: "100vh", overflow: "hidden" }}
         >
-          <Navbar setScroll={setScroll} /> {/* Navbar Component */}
-          <Box id="Home">
-            <Intro setScroll={setScroll} />
-          </Box>
-          <Box id="Skills">
-            <Skills />
-          </Box>
-          <Box id="Projects">
-            <Project />
-          </Box>
-          <Box id="Contact Me">
-            <Contact />
-          </Box>
-          <Footer /> {/* Footer Component */}
+          <Intro setScroll={setScroll} />
         </Box>
-      </CssBaseline>
+
+        <Box id="Skills">
+          <Skills />
+        </Box>
+
+        <Box id="Projects">
+          <Project />
+        </Box>
+
+        <Box id="Contact Me">
+          <Contact />
+        </Box>
+
+        <Footer />
+      </Box>
     </ThemeProvider>
   );
 }

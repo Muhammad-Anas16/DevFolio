@@ -13,17 +13,11 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import WbSunnyIcon from "@mui/icons-material/WbSunny"; // Sun icon
-import DarkModeIcon from "@mui/icons-material/DarkMode"; // Moon Icon
+import DarkModeIcon from "@mui/icons-material/DarkMode"; // Moon icon
 import { useDispatch, useSelector } from "react-redux";
 import { setTheme } from "../Redux/theme/themeSlice";
 
-const pages = [
-  "Home",
-  //   "Education and Certifications",
-  "Skills",
-  "Projects",
-  "Contact Me",
-];
+const pages = ["Home", "Skills", "Projects", "Contact Me"];
 
 function Navbar({ setScroll }) {
   const dispatch = useDispatch();
@@ -43,13 +37,12 @@ function Navbar({ setScroll }) {
     setAnchorElNav(null);
   };
 
-  const HandleNavClick = (page) => {
+  const handleNavClick = (page) => {
     setScroll(page);
     handleCloseNavMenu();
   };
 
   return (
-    // <AppBar position="static" color="default" elevation={0}>
     <AppBar
       position="sticky"
       elevation={0}
@@ -57,8 +50,8 @@ function Navbar({ setScroll }) {
         top: 0,
         zIndex: 1100,
         backgroundColor: "rgba(0, 0, 0, 0.4)", // semi-transparent black
-        backdropFilter: "blur(10px)", // blur effect behind navbar
-        WebkitBackdropFilter: "blur(10px)", // Safari support
+        backdropFilter: "blur(10px)",
+        WebkitBackdropFilter: "blur(10px)",
       }}
     >
       <Container maxWidth="xl">
@@ -77,7 +70,7 @@ function Navbar({ setScroll }) {
               fontFamily: "monospace",
             }}
           >
-            M.Anas()
+            {"< M-Anas />"}
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -108,7 +101,7 @@ function Navbar({ setScroll }) {
               sx={{ display: { xs: "block", md: "none" } }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleNavClick(page)}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
@@ -129,7 +122,7 @@ function Navbar({ setScroll }) {
               fontFamily: "monospace",
             }}
           >
-            M.Anas()
+             {"< M-Anas />"}
           </Typography>
 
           <Box
@@ -138,7 +131,7 @@ function Navbar({ setScroll }) {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={() => HandleNavClick(page)}
+                onClick={() => handleNavClick(page)}
                 sx={{
                   my: 2,
                   color: "inherit",

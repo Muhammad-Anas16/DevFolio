@@ -73,7 +73,7 @@ const Intro = ({ setScroll }) => {
               learning backend too...
             </Typography>
 
-            <Stack direction="row" flexWrap="wrap" spacing={2} mt={3}>
+            <Stack direction="row" spacing={2} mt={3}>
               <IconButton
                 href="https://github.com/muhammad-anas16"
                 target="_blank"
@@ -111,19 +111,6 @@ const Intro = ({ setScroll }) => {
                 }}
               >
                 <Facebook />
-              </IconButton>
-
-              <IconButton
-                href="https://www.instagram.com/muhammad.anas.dev/"
-                target="_blank"
-                rel="noopener noreferrer"
-                sx={{
-                  color: "#E1306C",
-                  transition: "transform 0.3s ease",
-                  "&:hover": { transform: "scale(1.2)" },
-                }}
-              >
-                <Instagram />
               </IconButton>
 
               <IconButton
@@ -176,7 +163,7 @@ const Intro = ({ setScroll }) => {
 
           <Grid item xs={12} md={6}>
             <Box
-              component="img"
+              component="img" 
               src={IntroImage}
               alt="Boy with Laptop"
               sx={{

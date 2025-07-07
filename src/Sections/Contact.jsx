@@ -52,7 +52,16 @@ const Contact = () => {
               alignItems="center"
               justifyContent="center"
             >
-              <Grid item xs={12} md={6}>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
                 <Avatar
                   alt="My Image"
                   src={My_Image}
@@ -64,7 +73,17 @@ const Contact = () => {
                 />
               </Grid>
 
-              <Grid item xs={12} md={6}>
+              <Grid
+                item
+                xs={12}
+                md={6}
+                sx={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column"
+                }}
+              >
                 <Typography
                   variant="caption"
                   gutterBottom
@@ -79,17 +98,7 @@ const Contact = () => {
                 </Typography>
 
                 {/* Social Icons */}
-                <Stack
-                  direction="row"
-                  flexWrap="wrap"
-                  spacing={2}
-                  mt={3}
-                  sx={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                  }}
-                >
+                <Stack direction="row" spacing={2} mt={3}>
                   <IconButton
                     href="https://github.com/muhammad-anas16"
                     target="_blank"
@@ -97,24 +106,20 @@ const Contact = () => {
                     sx={{
                       color: mode === "dark" ? "#ffffff" : "#171515",
                       transition: "transform 0.3s ease",
-                      "&:hover": {
-                        transform: "scale(1.2)",
-                      },
+                      "&:hover": { transform: "scale(1.2)" },
                     }}
                   >
                     <GitHub />
                   </IconButton>
 
                   <IconButton
-                    href="https://www.linkedin.com/in/muhammad-anas-b5368b32a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    href="https://www.linkedin.com/in/muhammad-anas-b5368b32a"
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      color: "#0A66C2", // LinkedIn
+                      color: "#0A66C2",
                       transition: "transform 0.3s ease",
-                      "&:hover": {
-                        transform: "scale(1.2)",
-                      },
+                      "&:hover": { transform: "scale(1.2)" },
                     }}
                   >
                     <LinkedIn />
@@ -125,29 +130,12 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      color: "#1877F2", // Facebook blue
+                      color: "#1877F2",
                       transition: "transform 0.3s ease",
-                      "&:hover": {
-                        transform: "scale(1.2)",
-                      },
+                      "&:hover": { transform: "scale(1.2)" },
                     }}
                   >
                     <Facebook />
-                  </IconButton>
-
-                  <IconButton
-                    href="https://www.instagram.com/muhammad.anas.dev/?igsh=MTBkanNza2IwczFkZA%3D%3D#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    sx={{
-                      color: "#E1306C", // Instagram
-                      transition: "transform 0.3s ease",
-                      "&:hover": {
-                        transform: "scale(1.2)",
-                      },
-                    }}
-                  >
-                    <Instagram />
                   </IconButton>
 
                   <IconButton
@@ -155,11 +143,9 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      color: "#EA4335", // Email/Gmail red
+                      color: "#EA4335",
                       transition: "transform 0.3s ease",
-                      "&:hover": {
-                        transform: "scale(1.2)",
-                      },
+                      "&:hover": { transform: "scale(1.2)" },
                     }}
                   >
                     <Email />
@@ -170,11 +156,9 @@ const Contact = () => {
                     target="_blank"
                     rel="noopener noreferrer"
                     sx={{
-                      color: "#25D366", // WhatsApp green
+                      color: "#25D366",
                       transition: "transform 0.3s ease",
-                      "&:hover": {
-                        transform: "scale(1.2)",
-                      },
+                      "&:hover": { transform: "scale(1.2)" },
                     }}
                   >
                     <WhatsApp />

@@ -11,10 +11,35 @@ import { useSelector } from "react-redux";
 import PulseLoader from "./Component/PulseLoader";
 import { motion, AnimatePresence } from "framer-motion";
 
+// ✅ Import images properly instead of using require()
+import boy from "./Images/boy.png";
+import pic from "./Images/pic.png";
+import project from "./Images/project.png";
+import skill from "./Images/skill.png";
+
+// Utility to preload images
+function preloadImages(srcArray) {
+  return Promise.all(
+    srcArray.map(
+      (src) =>
+        new Promise((resolve) => {
+          const img = new window.Image();
+          img.onload = img.onerror = resolve;
+          img.src = src;
+        })
+    )
+  );
+}
+
 function App() {
   const mode = useSelector((state) => state.theme.mode);
   const [scroll, setScroll] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [minTimePassed, setMinTimePassed] = useState(false);
+  const [imagesLoaded, setImagesLoaded] = useState(false);
+
+  // ✅ Use imported images here
+  const criticalImages = [boy, pic, project, skill];
 
   const Theme = createTheme({
     palette: {
@@ -23,11 +48,25 @@ function App() {
   });
 
   useEffect(() => {
+    // Minimum loader time
     const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500); // Adjust duration for loader delay
+      setMinTimePassed(true);
+    }, 1200); // 1.2s minimum loader time (adjust as needed)
     return () => clearTimeout(timer);
   }, []);
+
+  useEffect(() => {
+    // Preload images
+    preloadImages(criticalImages).then(() => {
+      setImagesLoaded(true);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (minTimePassed && imagesLoaded) {
+      setLoading(false);
+    }
+  }, [minTimePassed, imagesLoaded]);
 
   useEffect(() => {
     if (!loading) {
@@ -115,4 +154,5 @@ function App() {
     </ThemeProvider>
   );
 }
+
 export default App;
